@@ -2,6 +2,7 @@
 let root = document.querySelector("#root");
 root.style.cssText += `
 height:100vh;
+display:block;
 `;
 
 let header = document.createElement("div");
@@ -18,6 +19,15 @@ justify-content: center;
 `;
 root.appendChild(header);
 
+let imgToDisp = "";
+
+const onClickButtons = (e) => {
+    rigthHead.innerHTML = "stuff";
+    imgToDis = `assets/images/${e.target.value}.png`;
+    rightBg.src = imgToDis;
+    
+};
+
 const CreateElementAndAppend = (
   value,
   style = null,
@@ -27,6 +37,7 @@ const CreateElementAndAppend = (
 ) => {
   let tagName = document.createElement(tag);
   tagName.innerHTML = value;
+  tagName.value = [...value].join("").replace(/ /g, "").toLowerCase();
   style !== null && (tagName.style.cssText += style);
   onClick !== null && tagName.addEventListener("click", onClick);
   parent.appendChild(tagName);
@@ -34,23 +45,29 @@ const CreateElementAndAppend = (
 
 let section1 = document.createElement("div");
 section1.style.cssText += `
-display: block;
+display:flex;
+align-items:center;
 width: 100%;
 margin-top:4rem;
-align-items:center;
 background-color:transparent;
 margin-left:8rem;
+
+`;
+
+let mainleft = document.createElement("div");
+mainleft.style.cssText += `
+display:flex;
+justify-content:center;
 `;
 
 let leftSide = document.createElement("div");
-
+section1.appendChild(leftSide);
 leftSide.style.cssText += `
 width: 50%;
 padding-left:2rem;
-display:block;
+display:flex;
+flex-direction:column;
 `;
-
-//let rightSide = document.createElement("div");
 
 CreateElementAndAppend(
   "Sizzle your Life",
@@ -69,7 +86,6 @@ CreateElementAndAppend(
 
 let box = document.createElement("div");
 box.style.cssText += `
-padding-left:2.5rem;
 display:flex;
 column-gap:20px;
 padding-top:1.5rem;
@@ -78,21 +94,21 @@ padding-top:1.5rem;
 CreateElementAndAppend(
   "Polaroid",
   `border-radius:0.3cm;padding:0.5rem;cursor: pointer;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);background-color:transparent;font-size:1rem`,
-  null,
+  onClickButtons,
   `button`,
   box
 );
 CreateElementAndAppend(
   "TV",
   `border-radius:0.3cm;padding:0.5rem;cursor: pointer;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);background-color:transparent;font-size:1rem;`,
-  null,
+  onClickButtons,
   `button`,
   box
 );
 CreateElementAndAppend(
   "Traitor",
   `border-radius:0.3cm;padding:0.5rem;cursor: pointer;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);background-color:transparent;font-size:1rem;`,
-  null,
+  onClickButtons,
   `button`,
   box
 );
@@ -100,7 +116,7 @@ CreateElementAndAppend(
 CreateElementAndAppend(
   "Fall Guy",
   `border-radius:0.3cm;padding:0.5rem;cursor: pointer;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);background-color:transparent;font-size:1rem;`,
-  null,
+  onClickButtons,
   `button`,
   box
 );
@@ -108,7 +124,7 @@ CreateElementAndAppend(
 CreateElementAndAppend(
   "Radio",
   `border-radius:0.3cm;padding:0.5rem;cursor: pointer;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);background-color:transparent;font-size:1rem;`,
-  null,
+  onClickButtons,
   `button`,
   box
 );
@@ -117,7 +133,6 @@ CreateElementAndAppend(
 
 let box2 = document.createElement("div");
 box2.style.cssText += `
-padding-left:2.5rem;
 display:flex;
 column-gap:20px;
 padding-top:1.5rem;
@@ -217,9 +232,47 @@ padding-right:5px;
 radioCombine.appendChild(label2);
 
 section1.appendChild(leftSide);
-section1.appendChild(box);
-section1.appendChild(box2);
+leftSide.appendChild(box);
+leftSide.appendChild(box2);
 box2.appendChild(radioCombine);
 root.appendChild(section1);
 
-let footer =  document.createElement
+let camera = document.createElement("button");
+camera.style.cssText += `
+border-color:rgb(49, 49, 49);
+border-radius:2px;
+margin-top:1cm;
+max-width: 6ch;
+`;
+let camImg = document.createElement("img");
+camImg.src = "assets/images/camera.png";
+camImg.style.cssText += `
+height:1.5rem;
+width:1.5rem;
+`;
+
+camera.appendChild(camImg);
+leftSide.appendChild(camera);
+
+//// right side;
+
+let rightSide = document.createElement("div");
+section1.appendChild(rightSide);
+rightSide.style.cssText += `
+display:flex;
+flex-direction:column;
+`;
+
+let rigthHead = document.createElement("div");
+rightSide.appendChild(rigthHead);
+
+let rightImg = document.createElement("img");
+rightImg.style.cssText += `
+`;
+
+rightSide.appendChild(rightImg);
+
+let rightBg = document.createElement("img");
+rightSide.appendChild(rightBg);
+
+
