@@ -51,7 +51,6 @@ width: 50%;
 margin-top:4rem;
 background-color:transparent;
 margin-left:8rem;
-
 `;
 
 let mainleft = document.createElement("div");
@@ -64,8 +63,8 @@ justify-content:center;
 let leftSide = document.createElement("div");
 section1.appendChild(leftSide);
 leftSide.style.cssText += `
-width: 50%;
-padding-left:2rem;
+width: 70%;
+padding-left:1rem;
 display:flex;
 flex-direction:column;
 `;
@@ -139,16 +138,23 @@ column-gap:20px;
 padding-top:1.5rem;
 `;
 
+const onTyping = (e) => {
+    rigthHead.textContent = e.target.value;
+};
+
 let typeBox = document.createElement("input");
 typeBox.type = "text";
 typeBox.placeholder = "Type here";
 typeBox.style.cssText += `
 background-color:rgb(49, 49, 49);
+font-family:Montserrat;
 border-radius: 0.5rem;
 height: 2rem;
 text-align: center;
 `;
+typeBox.addEventListener("input", onTyping);
 box2.appendChild(typeBox);
+
 
 const addOptionsToSelect = (option, parent) => {
   let newOption = document.createElement("option");
@@ -248,7 +254,7 @@ max-width: 6ch;
 let camImg = document.createElement("img");
 camImg.src = "assets/images/camera.png";
 camImg.style.cssText += `
-height:1.5rem;
+height:1.4rem;
 width:1.5rem;
 `;
 
@@ -267,15 +273,20 @@ margin-right:2rem;
 margin-left: 25rem;
 `;
 
-let rigthHead = document.createElement("div");//text n stuff 
+let rigthHead = document.createElement("div");
+rigthHead.style.cssText += `
+font-weight:bold;
+font-family:Montserrat;
+margin-bottom:2cm;
+font-size:2rem;`;
+
 rightSide.appendChild(rigthHead);
 
 let rightImg = document.createElement("img");
 rightSide.appendChild(rightImg);
 rightImg.style.cssText += `
-max-height:20%;
-max-width:20%;
-
+max-height:10%;
+max-width:10%;
 `;
 
 
