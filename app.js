@@ -2,6 +2,7 @@
 let root = document.querySelector("#root");
 root.style.cssText += `
 background-color: #f3d62e;
+height:100vhs;
 `;
 
 let header = document.createElement("div");
@@ -71,6 +72,7 @@ box.style.cssText += `
 padding-left:2.5rem;
 display:flex;
 column-gap:20px;
+padding-top:1.5rem;
 `;
 
 
@@ -111,6 +113,95 @@ CreateElementAndAppend(
   `button`,
   box
 );
+
+// 2nd select panel 
+
+let box2 = document.createElement("div");
+box2.style.cssText += `
+padding-left:2.5rem;
+display:flex;
+column-gap:20px;
+padding-top:1.5rem;
+`;
+
+
+let typeBox =  document.createElement("input");
+typeBox.type = "text";
+typeBox.placeholder = "Type here";
+typeBox.style.cssText += `
+border-radius: 0.5rem;
+height: 2rem;
+text-align: center;
+`;
+box2.appendChild(typeBox);
+
+
+let selectBox = document.createElement("select");
+selectBox.type = "password";
+selectBox.placeholder = "";
+selectBox.style.cssText += `
+border-radius: 0.5rem;
+height: 2rem;
+text-align: center;
+`;
+box2.appendChild(selectBox);
+
+let radioCombine = document.createElement("div");
+radioCombine.style.cssText += `
+display:flex;
+column-gap:78x;
+align-items:center;
+background-color:rgb(49, 49, 49);
+color:white;
+padding:3px;
+border-radius:7px;
+`;
+
+
+let clickBlob= document.createElement("input");
+clickBlob.type = "radio";
+clickBlob.name = "same";
+clickBlob.style.cssText += `
+border-radius: 0.5rem;
+align-items:center;
+height: 2rem;
+text-align: center;
+`;
+radioCombine.appendChild(clickBlob);
+
+let label1 = document.createElement("label");
+label1.innerText = "Blob";
+label1.style.cssText += `
+padding-bottom:10px;
+padding-right:5px;
+`;
+radioCombine.appendChild(label1);
+
+let clickNope = document.createElement("input");
+clickNope.type = "radio";
+clickNope.name = "same";
+clickNope.style.cssText += `
+border-radius: 0.5rem;
+align-items:center;
+height: 2rem;
+text-align: center;
+`;
+
+radioCombine.appendChild(clickNope);
+
+let label2 = document.createElement("label");
+label2.innerText = "Nope";
+label2.style.cssText += `
+padding-bottom:10px;
+padding-right:5px;
+`;
+
+radioCombine.appendChild(label2);
+
+
+
 section1.appendChild(leftSide);
 section1.appendChild(box);
+section1.appendChild(box2);
+box2.appendChild(radioCombine);
 root.appendChild(section1);
