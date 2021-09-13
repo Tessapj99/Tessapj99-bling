@@ -23,8 +23,8 @@ let imgToDisp = ""
 
 const onClickButtons = (e) => {
     rigthHead.innerHTML = "stuff";
-    imgToDis = `assets/images/${e.target.value}.png`;
-    rightBg.src = imgToDis;
+    imgToDisp = `assets/images/${e.target.value}.png`;
+    rightBg.src = imgToDisp;
     
 };
 
@@ -46,6 +46,7 @@ const CreateElementAndAppend = (
 let section1 = document.createElement("div");
 section1.style.cssText += `
 display:flex;
+position:fixed;
 align-items:center;
 width: 50%;
 margin-top:4rem;
@@ -57,6 +58,7 @@ let mainleft = document.createElement("div");
 mainleft.style.cssText += `
 display:flex;
 justify-content:center;
+position:fixed;
 
 `;
 
@@ -207,6 +209,17 @@ align-items:center;
 height: 2rem;
 text-align: center;
 `;
+
+// adding the blob 
+
+let imgBehind = "";
+
+const onBolbClick = () => {
+  imgBehind = "assets/images/blob.png";
+  blobImage.src = imgBehind;
+};
+clickBlob.addEventListener("change", onBolbClick);
+
 radioCombine.appendChild(clickBlob);
 
 let label1 = document.createElement("label");
@@ -226,6 +239,14 @@ align-items:center;
 height: 2rem;
 text-align: center;
 `;
+const onNopeClick = () => {
+  imgBehind = "";
+  blobImage.src = imgBehind;
+};
+
+clickNope.addEventListener("change", onNopeClick);
+
+clickBlob.addEventListener("change", onBolbClick);
 
 radioCombine.appendChild(clickNope);
 
@@ -271,6 +292,9 @@ width:50%;
 flex-direction:column;
 margin-right:2rem;
 margin-left: 25rem;
+position:relative;
+top:0;
+left:0;
 `;
 
 let rigthHead = document.createElement("div");
@@ -278,19 +302,31 @@ rigthHead.style.cssText += `
 font-weight:bold;
 font-family:Montserrat;
 margin-bottom:2cm;
-font-size:2rem;`;
-
-rightSide.appendChild(rigthHead);
-
-let rightImg = document.createElement("img");
-rightSide.appendChild(rightImg);
-rightImg.style.cssText += `
-max-height:10%;
-max-width:10%;
+font-size:2rem;
 `;
 
 
+rightSide.appendChild(rigthHead);
+
 let rightBg = document.createElement("img");
+rightBg.style.cssText += `
+height:8rem;
+width:8.3rem;
+top:25px;
+left:2rem;
+margin-left:1.5cm;
+positon:absolute;
+z-index:5;
+`;
 rightSide.appendChild(rightBg);
+
+let blobImage = document.createElement("img");
+blobImage.style.cssText += `
+height:100%;
+margin-top:1cm;
+position:absolute;
+z-index:1
+`;
+rightSide.appendChild(blobImage);
 
 
