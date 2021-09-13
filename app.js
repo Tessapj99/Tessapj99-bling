@@ -1,8 +1,7 @@
 // main parent
 let root = document.querySelector("#root");
 root.style.cssText += `
-background-color: #f3d62e;
-height:100vhs;
+height:100vh;
 `;
 
 let header = document.createElement("div");
@@ -39,6 +38,7 @@ display: block;
 width: 100%;
 margin-top:4rem;
 align-items:center;
+background-color:transparent;
 margin-left:8rem;
 `;
 
@@ -75,24 +75,23 @@ column-gap:20px;
 padding-top:1.5rem;
 `;
 
-
 CreateElementAndAppend(
   "Polaroid",
-  `border-radius:0.3cm;padding:0.5rem;cursor: pointer;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);font-size:1rem`,
+  `border-radius:0.3cm;padding:0.5rem;cursor: pointer;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);background-color:transparent;font-size:1rem`,
   null,
   `button`,
   box
 );
 CreateElementAndAppend(
   "TV",
-  `border-radius:0.3cm;padding:0.5rem;cursor: pointer;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);font-size:1rem;`,
+  `border-radius:0.3cm;padding:0.5rem;cursor: pointer;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);background-color:transparent;font-size:1rem;`,
   null,
   `button`,
   box
 );
 CreateElementAndAppend(
   "Traitor",
-  `border-radius:0.3cm;padding:0.5rem;cursor: pointer;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);font-size:1rem;`,
+  `border-radius:0.3cm;padding:0.5rem;cursor: pointer;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);background-color:transparent;font-size:1rem;`,
   null,
   `button`,
   box
@@ -100,7 +99,7 @@ CreateElementAndAppend(
 
 CreateElementAndAppend(
   "Fall Guy",
-  `border-radius:0.3cm;padding:0.5rem;cursor: pointer;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);font-size:1rem;`,
+  `border-radius:0.3cm;padding:0.5rem;cursor: pointer;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);background-color:transparent;font-size:1rem;`,
   null,
   `button`,
   box
@@ -108,13 +107,13 @@ CreateElementAndAppend(
 
 CreateElementAndAppend(
   "Radio",
-  `border-radius:0.3cm;padding:0.5rem;cursor: pointer;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);font-size:1rem;`,
+  `border-radius:0.3cm;padding:0.5rem;cursor: pointer;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);background-color:transparent;font-size:1rem;`,
   null,
   `button`,
   box
 );
 
-// 2nd select panel 
+// 2nd select panel
 
 let box2 = document.createElement("div");
 box2.style.cssText += `
@@ -124,26 +123,46 @@ column-gap:20px;
 padding-top:1.5rem;
 `;
 
-
-let typeBox =  document.createElement("input");
+let typeBox = document.createElement("input");
 typeBox.type = "text";
 typeBox.placeholder = "Type here";
 typeBox.style.cssText += `
+background-color:rgb(49, 49, 49);
 border-radius: 0.5rem;
 height: 2rem;
 text-align: center;
 `;
 box2.appendChild(typeBox);
 
+const addOptionsToSelect = (option, parent) => {
+  let newOption = document.createElement("option");
+  newOption.text = option;
+  newOption.value = option;
+  parent.add(newOption);
+};
+const changeEventOnClick = (e) => {
+  document.body.style.backgroundColor = e.target.value;
+};
 
 let selectBox = document.createElement("select");
-selectBox.type = "password";
-selectBox.placeholder = "";
+addOptionsToSelect("Gold", selectBox);
+addOptionsToSelect("Green", selectBox);
+addOptionsToSelect("blue", selectBox);
+addOptionsToSelect("pink", selectBox);
+addOptionsToSelect("cyan", selectBox);
+addOptionsToSelect("yellow", selectBox);
+addOptionsToSelect("orange", selectBox);
+addOptionsToSelect("red", selectBox);
 selectBox.style.cssText += `
-border-radius: 0.5rem;
-height: 2rem;
-text-align: center;
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 2px solid black;
+  border-color: black;
+  border-radius: 1rem;
+  cursor: pointer;
+  background-color:transparent;
 `;
+selectBox.addEventListener("input", changeEventOnClick);
 box2.appendChild(selectBox);
 
 let radioCombine = document.createElement("div");
@@ -157,8 +176,7 @@ padding:3px;
 border-radius:7px;
 `;
 
-
-let clickBlob= document.createElement("input");
+let clickBlob = document.createElement("input");
 clickBlob.type = "radio";
 clickBlob.name = "same";
 clickBlob.style.cssText += `
@@ -198,10 +216,10 @@ padding-right:5px;
 
 radioCombine.appendChild(label2);
 
-
-
 section1.appendChild(leftSide);
 section1.appendChild(box);
 section1.appendChild(box2);
 box2.appendChild(radioCombine);
 root.appendChild(section1);
+
+let footer =  document.createElement
