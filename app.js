@@ -6,7 +6,7 @@ background-color: #f3d62e;
 
 let header = document.createElement("div");
 header.innerHTML = "BLING!";
-header.style.cssText +=`
+header.style.cssText += `
 display:flex;
 font-weight: 800;
 color:rgb(49, 49, 49);
@@ -32,49 +32,85 @@ const CreateElementAndAppend = (
   parent.appendChild(tagName);
 };
 
-
 let section1 = document.createElement("div");
 section1.style.cssText += `
-display: flex;
+display: block;
 width: 100%;
-margin-top:2rem;
+margin-top:4rem;
 align-items:center;
-margin-left:2rem;
+margin-left:8rem;
 `;
-
 
 let leftSide = document.createElement("div");
 
 leftSide.style.cssText += `
 width: 50%;
 padding-left:2rem;
+display:block;
 `;
 
 //let rightSide = document.createElement("div");
 
 CreateElementAndAppend(
   "Sizzle your Life",
-  `font-size: 1rem;font-family:Montserrat`,
+  `font-size: 1.5rem;font-family:Montserrat;font-weight:500;padding:0.2cm;color:rgb(49, 49, 49);`,
   null,
   "h1",
   leftSide
 );
 CreateElementAndAppend(
-  "Focus on what is important to you and rely on us <br> for organizing your tasks",
-  `font-size: 1.3rem;opacity:0.5;`,
+  "Make a Card",
+  `font-size: 3.5rem;font-family:Montserrat;font-weight:700;padding:0.2cm;color:rgb(49, 49, 49);`,
   null,
   "p",
   leftSide
 );
+
+let box = document.createElement("div");
+box.style.cssText += `
+padding-left:2.5rem;
+display:flex;
+column-gap:20px;
+`;
+
+
 CreateElementAndAppend(
-  "Get Started",
-  `border-radius:4.5rem;padding:1.2rem;cursor: pointer;margin-bottom: 1.2rem;border-color:transparent;background-color:#8EE5D1;font-size:1.5rem`,
+  "Polaroid",
+  `border-radius:0.3cm;padding:0.5rem;cursor: pointer;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);font-size:1rem`,
   null,
   `button`,
-  leftSide
+  box
+);
+CreateElementAndAppend(
+  "TV",
+  `border-radius:0.3cm;padding:0.5rem;cursor: pointer;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);font-size:1rem;`,
+  null,
+  `button`,
+  box
+);
+CreateElementAndAppend(
+  "Traitor",
+  `border-radius:0.3cm;padding:0.5rem;cursor: pointer;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);font-size:1rem;`,
+  null,
+  `button`,
+  box
 );
 
+CreateElementAndAppend(
+  "Fall Guy",
+  `border-radius:0.3cm;padding:0.5rem;cursor: pointer;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);font-size:1rem;`,
+  null,
+  `button`,
+  box
+);
+
+CreateElementAndAppend(
+  "Radio",
+  `border-radius:0.3cm;padding:0.5rem;cursor: pointer;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);font-size:1rem;`,
+  null,
+  `button`,
+  box
+);
 section1.appendChild(leftSide);
+section1.appendChild(box);
 root.appendChild(section1);
-
-
