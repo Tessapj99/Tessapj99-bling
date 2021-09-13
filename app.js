@@ -19,7 +19,7 @@ justify-content: center;
 `;
 root.appendChild(header);
 
-let imgToDisp = "";
+let imgToDisp = ""
 
 const onClickButtons = (e) => {
     rigthHead.innerHTML = "stuff";
@@ -47,7 +47,7 @@ let section1 = document.createElement("div");
 section1.style.cssText += `
 display:flex;
 align-items:center;
-width: 100%;
+width: 50%;
 margin-top:4rem;
 background-color:transparent;
 margin-left:8rem;
@@ -58,6 +58,7 @@ let mainleft = document.createElement("div");
 mainleft.style.cssText += `
 display:flex;
 justify-content:center;
+
 `;
 
 let leftSide = document.createElement("div");
@@ -260,17 +261,23 @@ let rightSide = document.createElement("div");
 section1.appendChild(rightSide);
 rightSide.style.cssText += `
 display:flex;
+width:50%;
 flex-direction:column;
+margin-right:2rem;
+margin-left: 25rem;
 `;
 
-let rigthHead = document.createElement("div");
+let rigthHead = document.createElement("div");//text n stuff 
 rightSide.appendChild(rigthHead);
 
 let rightImg = document.createElement("img");
+rightSide.appendChild(rightImg);
 rightImg.style.cssText += `
+max-height:20%;
+max-width:20%;
+
 `;
 
-rightSide.appendChild(rightImg);
 
 let rightBg = document.createElement("img");
 rightSide.appendChild(rightBg);
