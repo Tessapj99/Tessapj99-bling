@@ -22,7 +22,7 @@ root.appendChild(header);
 let imgToDisp = ""
 
 const onClickButtons = (e) => {
-    rigthHead.innerHTML = "stuff";
+    rigthHead.innerHTML = "Describe Me";
     imgToDisp = `assets/images/${e.target.value}.png`;
     rightBg.src = imgToDisp;
     
@@ -46,7 +46,6 @@ const CreateElementAndAppend = (
 let section1 = document.createElement("div");
 section1.style.cssText += `
 display:flex;
-position:fixed;
 align-items:center;
 width: 50%;
 margin-top:4rem;
@@ -54,13 +53,6 @@ background-color:transparent;
 margin-left:8rem;
 `;
 
-let mainleft = document.createElement("div");
-mainleft.style.cssText += `
-display:flex;
-justify-content:center;
-position:fixed;
-
-`;
 
 let leftSide = document.createElement("div");
 section1.appendChild(leftSide);
@@ -285,7 +277,7 @@ leftSide.appendChild(camera);
 //// right side;
 
 let rightSide = document.createElement("div");
-section1.appendChild(rightSide);
+
 rightSide.style.cssText += `
 display:flex;
 width:50%;
@@ -310,10 +302,10 @@ rightSide.appendChild(rigthHead);
 
 let rightBg = document.createElement("img");
 rightBg.style.cssText += `
-height:8rem;
-width:8.3rem;
 top:25px;
 left:2rem;
+max-height:10rem;
+max-width:10.2rem;
 margin-left:1.5cm;
 positon:absolute;
 z-index:5;
@@ -323,10 +315,19 @@ rightSide.appendChild(rightBg);
 let blobImage = document.createElement("img");
 blobImage.style.cssText += `
 height:100%;
-margin-top:1cm;
+margin-top:1.5cm;
 position:absolute;
 z-index:1
 `;
 rightSide.appendChild(blobImage);
+section1.appendChild(rightSide);
+root.appendChild(section1);
 
+let section4 = document.createElement("div");
+section4.innerHTML = "hello There";
+section4.style.cssText += `
+display: flex;
+justify-content: flex-end;
+background-color:gray;`;
 
+root.appendChild(section4);
