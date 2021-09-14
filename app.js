@@ -23,7 +23,7 @@ root.appendChild(header);
 let imgToDisp = ""
 
 const onClickButtons = (e) => {
-    rigthHead.innerHTML = "Describe Me";
+    rigthHead.innerHTML = "";
     imgToDisp = `assets/images/${e.target.value}.png`;
     console.log(imgToDisp,rightBg.src);
     if (rightBg.src.includes(imgToDisp))
@@ -145,12 +145,12 @@ const onTyping = (e) => {
 
 let typeBox = document.createElement("input");
 typeBox.type = "text";
-typeBox.placeholder = "Type here";
+typeBox.placeholder = "Name your Bling!!";
 typeBox.style.cssText += `
 background-color:rgb(49, 49, 49);
 font-family:Montserrat;
 border-radius: 0.5rem;
-height: 2rem;
+height: 3rem;
 text-align: center;
 `;
 typeBox.addEventListener("input", onTyping);
@@ -293,7 +293,7 @@ const onClickCamera = () => {
 let camera = document.createElement("button");
 camera.style.cssText += `
 border-color:rgb(49, 49, 49);
-border-radius:2px;
+border-radius:12px;
 margin-top:1cm;
 max-width: 6ch;
 `;
@@ -394,9 +394,12 @@ root.appendChild(section2);
 
 
 let base = document.createElement("div");
-base.style.cssText +=
-    `display:flex;justify-content:center;
-    column-gap:15px;margin-top:200px;
+base.style.cssText += `display:flex;
+    justify-content:center;
+    column-gap:15px;
+    padding-bottom: 100px;
+    margin-top:200px;
+    margin-bottom:200px;
     align-items:flex-end
     `;
 CreateElementAndAppend("<span>&hearts;<span>Credits:", "", null, "p",base );
@@ -405,5 +408,5 @@ CreateElementAndAppend("TV", "text-decoration:none", null, "a", base);
 CreateElementAndAppend("Traitor", "text-decoration:none", null, "a", base);
 CreateElementAndAppend("Fall Guy", "text-decoration:none", null, "a", base);
 CreateElementAndAppend("Radio", "text-decoration:none", null, "a", base);
-
 root.appendChild(base);
+
