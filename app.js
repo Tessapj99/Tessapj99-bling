@@ -1,3 +1,4 @@
+document.body.style.backgroundColor = "gold";
 // main parent
 let root = document.querySelector("#root");
 root.style.cssText += `
@@ -24,6 +25,12 @@ let imgToDisp = ""
 const onClickButtons = (e) => {
     rigthHead.innerHTML = "Describe Me";
     imgToDisp = `assets/images/${e.target.value}.png`;
+    console.log(imgToDisp,rightBg.src);
+    if (rightBg.src.includes(imgToDisp))
+    {  
+        rightBg.src = null;
+    }
+    else
     rightBg.src = imgToDisp;
     
 };
@@ -157,6 +164,8 @@ const addOptionsToSelect = (option, parent) => {
   parent.add(newOption);
 };
 const changeEventOnClick = (e) => {
+   let rightBox = document.getElementById("rightBox");
+   rightBox.style.backgroundColor = e.target.value;
   document.body.style.backgroundColor = e.target.value;
 };
 
@@ -257,6 +266,25 @@ leftSide.appendChild(box2);
 box2.appendChild(radioCombine);
 root.appendChild(section1);
 
+const onClickCamera = () => {
+
+    let card = document.getElementById("rightBox");
+    let newCard = card.cloneNode(true);
+    newCard.childNodes.forEach((item) => { console.log(item.id); })
+    let closetag = document.createElement("img")
+    closetag.src = "assets/images/icondelete.png";
+    closetag.style.cssText += `
+    position:absolute;
+    top;0;
+    right:0;
+    width:2rem;
+    `;
+    newCard.appendChild(closetag);
+    closetag.addEventListener("click", () => { newCard.remove();});
+    let cardList = document.getElementById("cardList");
+    cardList.appendChild(newCard);
+};
+
 let camera = document.createElement("button");
 camera.style.cssText += `
 border-color:rgb(49, 49, 49);
@@ -264,6 +292,7 @@ border-radius:2px;
 margin-top:1cm;
 max-width: 6ch;
 `;
+camera.addEventListener("click", onClickCamera);
 let camImg = document.createElement("img");
 camImg.src = "assets/images/camera.png";
 camImg.style.cssText += `
@@ -276,6 +305,7 @@ leftSide.appendChild(camera);
 
 //// right side;
 
+
 let rightSide = document.createElement("div");
 
 rightSide.style.cssText += `
@@ -283,11 +313,24 @@ display:flex;
 width:50%;
 flex-direction:column;
 margin-right:2rem;
-margin-left: 25rem;
+margin-left: 20rem;
 position:relative;
 top:0;
 left:0;
 `;
+
+let rightBox = document.createElement("div");
+rightBox.id = "rightBox";
+rightBox.style.cssText += `
+position:relative;
+display: flex;
+flex-direction:column;
+justify-content:center;
+width:100%;
+max-width:22rem;
+background-color:gold;
+`;
+
 
 let rigthHead = document.createElement("div");
 rigthHead.style.cssText += `
@@ -295,10 +338,10 @@ font-weight:bold;
 font-family:Montserrat;
 margin-bottom:2cm;
 font-size:2rem;
+max-width:22rem;
+text-align:center;
 `;
 
-
-rightSide.appendChild(rigthHead);
 
 let rightBg = document.createElement("img");
 rightBg.style.cssText += `
@@ -306,7 +349,7 @@ top:25px;
 left:2rem;
 max-height:10rem;
 max-width:10.2rem;
-margin-left:1.5cm;
+
 positon:absolute;
 z-index:5;
 `;
@@ -319,15 +362,21 @@ margin-top:1.5cm;
 position:absolute;
 z-index:1
 `;
-rightSide.appendChild(blobImage);
+
+rightBox.appendChild(rigthHead);
+rightBox.appendChild(blobImage);
+rightBox.appendChild(rightBg);
+rightSide.appendChild(rightBox);
 section1.appendChild(rightSide);
 root.appendChild(section1);
 
-let section4 = document.createElement("div");
-section4.innerHTML = "hello There";
-section4.style.cssText += `
+let section2 = document.createElement("div");
+section2.id = "cardList";
+section2.style.cssText += `
 display: flex;
-justify-content: flex-end;
-background-color:gray;`;
-
-root.appendChild(section4);
+gap: 1rem;
+margin-top:2cm;
+justify-content: center;
+flex-wrap:wrap;
+`;
+root.appendChild(section2);
