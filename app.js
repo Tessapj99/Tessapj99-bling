@@ -172,6 +172,7 @@ const changeEventOnClick = (e) => {
 let selectBox = document.createElement("select");
 addOptionsToSelect("Gold", selectBox);
 addOptionsToSelect("Green", selectBox);
+addOptionsToSelect("Snow", selectBox);
 addOptionsToSelect("blue", selectBox);
 addOptionsToSelect("pink", selectBox);
 addOptionsToSelect("cyan", selectBox);
@@ -271,11 +272,13 @@ const onClickCamera = () => {
     let card = document.getElementById("rightBox");
     let newCard = card.cloneNode(true);
     newCard.childNodes.forEach((item) => { console.log(item.id); })
+    newCard.style.cssText += `
+    border:1px solid black;`;
     let closetag = document.createElement("img")
     closetag.src = "assets/images/icondelete.png";
     closetag.style.cssText += `
     position:absolute;
-    top;0;
+    top:0;
     right:0;
     width:2rem;
     `;
@@ -328,6 +331,8 @@ flex-direction:column;
 justify-content:center;
 width:100%;
 max-width:22rem;
+
+max-width:22rem;
 background-color:gold;
 `;
 
@@ -336,9 +341,9 @@ let rigthHead = document.createElement("div");
 rigthHead.style.cssText += `
 font-weight:bold;
 font-family:Montserrat;
-margin-bottom:2cm;
+margin-bottom:3rem;
 font-size:2rem;
-max-width:22rem;
+max-width:2rem;
 text-align:center;
 `;
 
@@ -349,7 +354,7 @@ top:25px;
 left:2rem;
 max-height:10rem;
 max-width:10.2rem;
-
+margin-left:1cm;
 positon:absolute;
 z-index:5;
 `;
@@ -358,9 +363,13 @@ rightSide.appendChild(rightBg);
 let blobImage = document.createElement("img");
 blobImage.style.cssText += `
 height:100%;
-margin-top:1.5cm;
+padding-top:1cm;
+margin-top:2cm;
 position:absolute;
 z-index:1
+height:4cm;
+
+
 `;
 
 rightBox.appendChild(rigthHead);
