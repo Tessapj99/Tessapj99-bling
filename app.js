@@ -94,21 +94,21 @@ padding-top:1.5rem;
 
 CreateElementAndAppend(
   "Polaroid",
-  `border-radius:0.3cm;padding:0.5rem;cursor: pointer;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);background-color:transparent;font-size:1rem`,
+  `border-radius:0.3cm;padding:0.5rem;cursor: pointer;margin-bottom: 1.2rem;box-shadow:2px 2px 5px black;border-color:rgb(49, 49, 49);background-color:transparent;font-size:1rem`,
   onClickButtons,
   `button`,
   box
 );
 CreateElementAndAppend(
   "TV",
-  `border-radius:0.3cm;padding:0.5rem;cursor: pointer;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);background-color:transparent;font-size:1rem;`,
+  `border-radius:0.3cm;padding:0.5rem;cursor: pointer;box-shadow:2px 2px 5px black;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);background-color:transparent;font-size:1rem;`,
   onClickButtons,
   `button`,
   box
 );
 CreateElementAndAppend(
   "Traitor",
-  `border-radius:0.3cm;padding:0.5rem;cursor: pointer;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);background-color:transparent;font-size:1rem;`,
+  `border-radius:0.3cm;padding:0.5rem;box-shadow:2px 2px 5px black;cursor: pointer;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);background-color:transparent;font-size:1rem;`,
   onClickButtons,
   `button`,
   box
@@ -116,7 +116,7 @@ CreateElementAndAppend(
 
 CreateElementAndAppend(
   "Fall Guy",
-  `border-radius:0.3cm;padding:0.5rem;cursor: pointer;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);background-color:transparent;font-size:1rem;`,
+  `border-radius:0.3cm;padding:0.5rem;cursor: pointer;box-shadow:2px 2px 5px black;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);background-color:transparent;font-size:1rem;`,
   onClickButtons,
   `button`,
   box
@@ -124,7 +124,7 @@ CreateElementAndAppend(
 
 CreateElementAndAppend(
   "Radio",
-  `border-radius:0.3cm;padding:0.5rem;cursor: pointer;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);background-color:transparent;font-size:1rem;`,
+  `border-radius:0.3cm;padding:0.5rem;box-shadow:2px 2px 5px black;cursor: pointer;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);background-color:transparent;font-size:1rem;`,
   onClickButtons,
   `button`,
   box
@@ -273,7 +273,9 @@ const onClickCamera = () => {
     let newCard = card.cloneNode(true);
     newCard.childNodes.forEach((item) => { console.log(item.id); })
     newCard.style.cssText += `
-    border:1px solid black;`;
+    border:3px solid black;
+    box-shadow:2px 2px 5px black;
+    `;
     let closetag = document.createElement("img")
     closetag.src = "assets/images/icondelete.png";
     closetag.style.cssText += `
@@ -389,3 +391,19 @@ justify-content: center;
 flex-wrap:wrap;
 `;
 root.appendChild(section2);
+
+
+let base = document.createElement("div");
+base.style.cssText +=
+    `display:flex;justify-content:center;
+    column-gap:15px;margin-top:200px;
+    align-items:flex-end
+    `;
+CreateElementAndAppend("<span>&hearts;<span>Credits:", "", null, "p",base );
+CreateElementAndAppend("Polaroid", "text-decoration:none;", null, "a", base);
+CreateElementAndAppend("TV", "text-decoration:none", null, "a", base);
+CreateElementAndAppend("Traitor", "text-decoration:none", null, "a", base);
+CreateElementAndAppend("Fall Guy", "text-decoration:none", null, "a", base);
+CreateElementAndAppend("Radio", "text-decoration:none", null, "a", base);
+
+root.appendChild(base);
