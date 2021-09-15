@@ -27,15 +27,15 @@ const onClickButtons = (e) => {
   rigthHead.innerHTML = "";
   if (previousClicked !== "") {
     previousClicked.style.backgroundColor = "transparent";
-    previousClicked.style.color = "black";
+    previousClicked.style.color = "rgb(49, 49, 49)";
   }
 
   if (previousClicked === e.target) {
     previousClicked.style.backgroundColor = "transparent";
-    previousClicked.style.color = "black";
+    previousClicked.style.color = "rgb(49, 49, 49)";
   }
   else {
-    e.target.style.backgroundColor = "black";
+    e.target.style.backgroundColor = "rgb(49, 49, 49)";
     e.target.style.color = "white";
     previousClicked = e.target;
 
@@ -157,6 +157,7 @@ box2.style.cssText += `
 display:flex;
 column-gap:20px;
 padding-top:1.5rem;
+justify-content:space-around;
 `;
 
 const onTyping = (e) => {
@@ -217,6 +218,7 @@ let radioCombine = document.createElement("div");
 radioCombine.style.cssText += `
 display:flex;
 column-gap:78x;
+justify-content:space-around;
 align-items:center;
 background-color:rgb(49, 49, 49);
 color:white;
@@ -249,7 +251,6 @@ radioCombine.appendChild(clickBlob);
 let label1 = document.createElement("label");
 label1.innerText = "Blob";
 label1.style.cssText += `
-padding-bottom:10px;
 padding-right:5px;
 `;
 radioCombine.appendChild(label1);
@@ -277,7 +278,7 @@ radioCombine.appendChild(clickNope);
 let label2 = document.createElement("label");
 label2.innerText = "Nope";
 label2.style.cssText += `
-padding-bottom:10px;
+
 padding-right:5px;
 `;
 
