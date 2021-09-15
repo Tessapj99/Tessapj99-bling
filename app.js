@@ -21,16 +21,37 @@ justify-content: center;
 root.appendChild(header);
 
 let imgToDisp = ""
+let previousClicked = ""
 
 const onClickButtons = (e) => {
-    rigthHead.innerHTML = "Name me!";
+  rigthHead.innerHTML = "";
+  if (previousClicked !== "") {
+    previousClicked.style.backgroundColor = "transparent";
+    previousClicked.style.color = "black";
+  }
+
+  if (previousClicked === e.target) {
+    previousClicked.style.backgroundColor = "transparent";
+    previousClicked.style.color = "black";
+  }
+  else {
+    e.target.style.backgroundColor = "black";
+    e.target.style.color = "white";
+    previousClicked = e.target;
+
+  }
     imgToDisp = `assets/images/${e.target.value}.png`;
     if (rightBg.src.includes(imgToDisp))
     {  
-        rightBg.src = null;
+      rightBg.src = null;
+      rightBg.style.visibility = "hidden";
     }
-    else
-    rightBg.src = imgToDisp;
+    else {
+      rightBg.style.visibility = "visible";
+      rightBg.src = imgToDisp;
+      
+    }
+    
     
 };
 
