@@ -355,6 +355,7 @@ display: flex;
 flex-direction:column;
 justify-content:center;
 width:100%;
+min-height:12em;
 max-width:22rem;
 padding:1rem;
 max-width:22rem;
