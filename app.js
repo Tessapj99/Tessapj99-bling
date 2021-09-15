@@ -15,7 +15,7 @@ color:rgb(49, 49, 49);
 text-shadow:2px 3px #c79619;
 font-family:Montserrat;
 font-size: 1.5rem; 
-padding-top: 1cm;
+padding-top: 1rem;
 justify-content: center;
 `;
 root.appendChild(header);
@@ -23,9 +23,8 @@ root.appendChild(header);
 let imgToDisp = ""
 
 const onClickButtons = (e) => {
-    rigthHead.innerHTML = "";
+    rigthHead.innerHTML = "Name me!";
     imgToDisp = `assets/images/${e.target.value}.png`;
-    console.log(imgToDisp,rightBg.src);
     if (rightBg.src.includes(imgToDisp))
     {  
         rightBg.src = null;
@@ -55,7 +54,7 @@ section1.style.cssText += `
 display:flex;
 align-items:center;
 width: 50%;
-margin-top:4rem;
+margin-top:5rem;
 background-color:transparent;
 margin-left:8rem;
 `;
@@ -72,14 +71,14 @@ flex-direction:column;
 
 CreateElementAndAppend(
   "Sizzle your Life",
-  `font-size: 1.5rem;font-family:Montserrat;font-weight:500;padding:0.2cm;color:rgb(49, 49, 49);`,
+  `font-size: 1.5rem;font-family:Montserrat;font-weight:500;padding:12px;color:rgb(49, 49, 49);`,
   null,
   "h1",
   leftSide
 );
 CreateElementAndAppend(
   "Make a Card",
-  `font-size: 3.5rem;font-family:Montserrat;font-weight:700;padding:0.2cm;color:rgb(49, 49, 49);`,
+  `font-size: 3.5rem;font-family:Montserrat;font-weight:700;padding:12px;color:rgb(49, 49, 49);`,
   null,
   "p",
   leftSide
@@ -94,21 +93,21 @@ padding-top:1.5rem;
 
 CreateElementAndAppend(
   "Polaroid",
-  `border-radius:0.3cm;padding:0.5rem;cursor: pointer;margin-bottom: 1.2rem;box-shadow:2px 2px 5px black;border-color:rgb(49, 49, 49);background-color:transparent;font-size:1rem`,
+  `border-radius:12px;padding:0.5rem;cursor: pointer;margin-bottom: 1.2rem;box-shadow:2px 2px 5px black;border-color:rgb(49, 49, 49);background-color:transparent;font-size:1rem`,
   onClickButtons,
   `button`,
   box
 );
 CreateElementAndAppend(
   "TV",
-  `border-radius:0.3cm;padding:0.5rem;cursor: pointer;box-shadow:2px 2px 5px black;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);background-color:transparent;font-size:1rem;`,
+  `border-radius:12px;padding:0.5rem;cursor: pointer;box-shadow:2px 2px 5px black;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);background-color:transparent;font-size:1rem;`,
   onClickButtons,
   `button`,
   box
 );
 CreateElementAndAppend(
   "Traitor",
-  `border-radius:0.3cm;padding:0.5rem;box-shadow:2px 2px 5px black;cursor: pointer;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);background-color:transparent;font-size:1rem;`,
+  `border-radius:12px;padding:0.5rem;box-shadow:2px 2px 5px black;cursor: pointer;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);background-color:transparent;font-size:1rem;`,
   onClickButtons,
   `button`,
   box
@@ -116,7 +115,7 @@ CreateElementAndAppend(
 
 CreateElementAndAppend(
   "Fall Guy",
-  `border-radius:0.3cm;padding:0.5rem;cursor: pointer;box-shadow:2px 2px 5px black;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);background-color:transparent;font-size:1rem;`,
+  `border-radius:12px;padding:0.5rem;cursor: pointer;box-shadow:2px 2px 5px black;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);background-color:transparent;font-size:1rem;`,
   onClickButtons,
   `button`,
   box
@@ -124,7 +123,7 @@ CreateElementAndAppend(
 
 CreateElementAndAppend(
   "Radio",
-  `border-radius:0.3cm;padding:0.5rem;box-shadow:2px 2px 5px black;cursor: pointer;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);background-color:transparent;font-size:1rem;`,
+  `border-radius:12px;padding:0.5rem;box-shadow:2px 2px 5px black;cursor: pointer;margin-bottom: 1.2rem;border-color:rgb(49, 49, 49);background-color:transparent;font-size:1rem;`,
   onClickButtons,
   `button`,
   box
@@ -149,9 +148,11 @@ typeBox.placeholder = "Name your Bling!!";
 typeBox.style.cssText += `
 background-color:rgb(49, 49, 49);
 font-family:Montserrat;
+color:white;
 border-radius: 0.5rem;
 height: 3rem;
-text-align: center;
+display:flex;
+align-items: center;
 `;
 typeBox.addEventListener("input", onTyping);
 box2.appendChild(typeBox);
@@ -186,7 +187,7 @@ selectBox.style.cssText += `
   border-color: black;
   border-radius: 1rem;
   cursor: pointer;
-  background-color:transparent;
+  background-color:rgb(49, 49, 49);
 `;
 selectBox.addEventListener("input", changeEventOnClick);
 box2.appendChild(selectBox);
@@ -217,7 +218,7 @@ text-align: center;
 let imgBehind = "";
 
 const onBolbClick = () => {
-  imgBehind = "assets/images/blob.png";
+  imgBehind = "https://tessapj-bling-app.netlify.app/assets/images/blob.png";
   blobImage.src = imgBehind;
 };
 clickBlob.addEventListener("change", onBolbClick);
@@ -294,7 +295,7 @@ let camera = document.createElement("button");
 camera.style.cssText += `
 border-color:rgb(49, 49, 49);
 border-radius:12px;
-margin-top:1cm;
+margin-top:12px;
 max-width: 6ch;
 `;
 camera.addEventListener("click", onClickCamera);
@@ -333,7 +334,7 @@ flex-direction:column;
 justify-content:center;
 width:100%;
 max-width:22rem;
-
+padding:1rem;
 max-width:22rem;
 background-color:gold;
 `;
@@ -356,7 +357,7 @@ top:25px;
 left:2rem;
 max-height:10rem;
 max-width:10.2rem;
-margin-left:1cm;
+margin-left:20px;
 positon:absolute;
 z-index:5;
 `;
@@ -365,13 +366,10 @@ rightSide.appendChild(rightBg);
 let blobImage = document.createElement("img");
 blobImage.style.cssText += `
 height:100%;
-padding-top:1cm;
-margin-top:2cm;
+margin-top:6rem;
 position:absolute;
-z-index:1
-height:4cm;
-
-
+z-index:1;
+height:15rem;
 `;
 
 rightBox.appendChild(rigthHead);
@@ -386,7 +384,7 @@ section2.id = "cardList";
 section2.style.cssText += `
 display: flex;
 gap: 1rem;
-margin-top:2cm;
+margin-top:auto;
 justify-content: center;
 flex-wrap:wrap;
 `;
